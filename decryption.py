@@ -1,5 +1,4 @@
 from Crypto.Cipher import AES
-from key import key as key1
 from Crypto.Util.Padding import pad
 from PIL import Image
 import streamlit as st
@@ -52,9 +51,21 @@ output_file_path = 'Cell6.txt'
 print(f"Decrypted data written to {output_file_path}")
 
 # Open the input and output files
-with open("Cell6.txt", "r") as input_file, open("process.txt", "w") as output_file:
-    # Read the contents of the input file
-    input_str = input_file.read()
+# with open("Cell6.txt", "r") as input_file, open("process.txt", "w") as output_file:
+#     # Read the contents of the input file
+#     input_str = input_file.read()
+
+#     # Remove any characters other than 0 and 1
+#     filtered_str = ''.join(c for c in input_str if c in {'0', '1'})
+
+#     # Write the filtered string to the output file
+#     output_file.write(filtered_str)
+with open("Cell6.txt", "rb") as input_file, open("process.txt", "w") as output_file:
+    # Read the contents of the input file as bytes
+    input_bytes = input_file.read()
+
+    # Convert bytes to string using utf-8 encoding
+    input_str = input_bytes.decode("utf-8", errors="ignore")
 
     # Remove any characters other than 0 and 1
     filtered_str = ''.join(c for c in input_str if c in {'0', '1'})

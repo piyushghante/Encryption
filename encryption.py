@@ -118,6 +118,6 @@ margin='50px'
 
 st.write(f'<div style="margin: {margin}"></div>', unsafe_allow_html=True)
 
-st.write('Steps to be followed to Encrypt File')
-video='env.webm'
-st.video(video)
+#st.write('Steps to be followed to Encrypt File')
+#video='env.webm'
+#st.video(video)
